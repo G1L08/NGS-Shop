@@ -1,0 +1,16 @@
+# api/.htaccess
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# Prevenir acceso directo a archivos sensibles
+<FilesMatch "\.(php|inc)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Permitir solo buscar_ajax.php
+<Files "buscar_ajax.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
